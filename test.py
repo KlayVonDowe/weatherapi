@@ -1,0 +1,2 @@
+import weatapi
+weatapi.callApi()

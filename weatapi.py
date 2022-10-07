@@ -17,14 +17,19 @@ y = x.json()
 z = y['properties']['forecast']
 xyz = requests.get(z)
 forecast = xyz.json()
-ctypes.windll.user32.MessageBoxW(0,forecast['properties']['periods'][0]['detailedForecast'], "Weather", 0 )
-#def func():
-   # print(forecast['properties']['periods'][0]['detailedForecast'])
-    #print(getLoc.address)
 
-schedule.every().day.at("15:40").do(func)
+def timedAlert():
+    print(forecast['properties']['periods'][0]['detailedForecast'])
+    print(getLoc.address)
+    ctypes.windll.user32.MessageBoxW(0,forecast['properties']['periods'][0]['detailedForecast'], "Weather", 0 )
+schedule.every().day.at("08:24").do(timedAlert())
 
-#while True:
-   # schedule.run_pending()
+def callApi():
+    print(forecast['properties']['periods'][0]['detailedForecast'])
+    print(getLoc.address)
+    ctypes.windll.user32.MessageBoxW(0,forecast['properties']['periods'][0]['detailedForecast'], "Weather", 0 )
+
+while True:
+    schedule.run_pending()
     
-   # time.sleep(1)
+    time.sleep(1)
